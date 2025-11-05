@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Leis & Ivy Ngo for VP Services | Waterloo Engineering Society</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0a1628;
+            --secondary-color: #1e3a5f;
+            --accent-color: #ffd23f;
+            --accent-bright: #ffee00;
+            --text-dark: #0a1628;
+            --text-light: #4a5568;
+            --background-light: #f7fafc;
+            --white: #ffffff;
+            --success-green: #48bb78;
+            --dark-gradient-start: #0a1628;
+            --dark-gradient-end: #1e3a5f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Fredoka', cursive;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-bright));
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(10, 22, 40, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-logo {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-logo:hover {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.25rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0a1628 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 210, 63, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 238, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-images {
+            display: flex;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .candidate-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-bright));
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 4px 20px rgba(255, 210, 63, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+        
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7), 0 0 15px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-slogan {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-bright));
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(255, 210, 63, 0.4);
+            transform: perspective(1px) translateZ(0);
+            transition: transform 0.3s;
+        }
+        
+        .hero-slogan:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 210, 63, 0.5);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+        
+        section:nth-child(even) {
+            background: var(--background-light);
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .candidate-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .candidate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(10, 22, 40, 0.15);
+        }
+        
+        .candidate-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .candidate-card strong {
+            color: var(--secondary-color);
+        }
+        
+        .candidate-image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(255, 210, 63, 0.1), rgba(255, 238, 0, 0.05));
+            border: 2px dashed var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Platform Section */
+        .platform-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .initiative-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.1);
+            border-left: 5px solid var(--accent-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 210, 63, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(10, 22, 40, 0.15);
+        }
+        
+        .initiative-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .initiative-number {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-bright));
+            color: var(--primary-color);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(255, 210, 63, 0.3);
+        }
+        
+        .initiative-details {
+            margin-top: 1rem;
+        }
+        
+        .initiative-details ul {
+            list-style-position: inside;
+            margin-top: 0.5rem;
+        }
+        
+        .initiative-details li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        /* Get Involved Section */
+        .get-involved {
+            background: linear-gradient(135deg, #050d1a 0%, #0a1628 25%, #1e3a5f 75%, #050d1a 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .get-involved::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 210, 63, 0.05) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .get-involved h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 1;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        
+        .get-involved p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.15rem;
+            font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 15px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-bright));
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 210, 63, 0.3);
+            font-size: 1rem;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 210, 63, 0.5);
+            background: linear-gradient(135deg, var(--accent-bright), var(--accent-color));
+        }
+        
+        /* Credentials Section */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .credential-category {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(10, 22, 40, 0.1);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .credential-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(10, 22, 40, 0.15);
+        }
+        
+        .credential-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .credential-category ul {
+            list-style: none;
+        }
+        
+        .credential-category li {
+            padding: 0.5rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .credential-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(255, 210, 63, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--background-light);
+            color: var(--text-dark);
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 5px solid var(--accent-color);
+        }
+        
+        footer p {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .sustainability-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-green), #68d391);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(72, 187, 120, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 15px rgba(10, 22, 40, 0.1);
+                border-top: 3px solid var(--accent-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+            
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .hero-slogan {
+                font-size: 1.3rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .hero-images {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .candidate-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .about-grid,
+            .credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+                padding: 1rem 2rem;
+            }
+            
+            section {
+                padding: 2rem 0;
+            }
+            
+            .initiative-card {
+                padding: 1.5rem;
+            }
+            
+            .get-involved {
+                padding: 3rem 0;
+            }
+            
+            .get-involved h2 {
+                font-size: 1.75rem;
+            }
+            
+            .get-involved p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+            
+            h3 {
+                font-size: 1.15rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .hero-slogan {
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                white-space: normal;
+                line-height: 1.3;
+            }
+            
+            .candidate-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .initiative-card {
+                padding: 1.25rem;
+            }
+            
+            .initiative-card h3 {
+                font-size: 1.15rem;
+            }
+            
+            .initiative-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+            
+            .credential-category {
+                padding: 1.25rem;
+            }
+            
+            .credential-category h4 {
+                font-size: 1.1rem;
+            }
+            
+            footer {
+                padding: 2rem 0;
+            }
+            
+            .sustainability-badge {
+                font-size: 0.85rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+        
+        /* Ensure touch targets are large enough on mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .cta-button {
+                min-height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                padding: 0.75rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Leis & Ngo for VP Services</a>
+            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#credentials">Experience</a></li>
+                <li><a href="#get-involved">Get Involved</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Jordan Leis & Ivy Ngo</h1>
+            <p class="hero-tagline">Your Candidate Pair for VP Services</p>
+            
+            <div class="hero-images">
+                <div class="candidate-photo">
+                    <img src="images/jordan-headshot.jpg" alt="Jordan Leis" 
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div class="candidate-photo">
+                    <img src="images/ivy-headshot.jpg" alt="Ivy Ngo" 
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+            </div>
+            
+            <div class="hero-slogan">Turning Student Needs into Student Services</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Your Candidates</h2>
+            <p>Two complementary skill-sets, one vision: transforming Engineering Society services to better serve every student.</p>
+            
+            <div class="about-grid">
+                <div class="candidate-card">
+                    <div class="candidate-image-placeholder">
+                       <img src="images/jordan-main.jpg" alt="Jordan Leis" 
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3>Jordan Leis</h3>
+                    <p><strong>Electrical Engineering '28</strong></p>
+                    <p>As your EE representative since 2023, I've consistently championed student interests. My two terms as Internal Relations Commissioner gave me deep insight into EngSoc's structure and how to improve collaboration across all portfolios.</p>
+                    <p>Currently serving as Director and Technical Project Manager at WAT.ai, I'm actively improving internal communication between technical teams and executive leadership. I bring real-world experience in coordination, process improvement, and stakeholder management.</p>
+                    <p><strong>Why I'm running:</strong> I understand how to bridge the "student voice" and the "organizational process" — exactly what VP Services needs. I'm focused not just on ideas, but on implementation.</p>
+                </div>
+                
+                <div class="candidate-card">
+                    <div class="candidate-image-placeholder">
+                         <img src="images/ivy-main.jpg" alt="Ivy Ngo" 
+        style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h3>Ivy Ngo</h3>
+                    <p><strong>Chemical Engineering '28</strong></p>
+                    <p>With two terms as Student Services Commissioner, I've directly supported students through resume critiques, professional photoshoots, and career development initiatives. I know firsthand what services students need and use.</p>
+                    <p>Currently working in a lab converting food waste to plastic, I bring a unique perspective on sustainability and innovation. Originally from Toronto, I understand the diverse needs of our engineering community.</p>
+                    <p><strong>Why I'm running:</strong> I've seen the gaps in our current services and I'm ready to fill them. Together with Jordan, we'll deliver services that are modern, accessible, and actually useful for students.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section id="platform">
+        <div class="container">
+            <h2>Our Platform: Services That Actually Work</h2>
+            <p>The Waterloo Engineering Society exists to "promote a positive undergraduate experience." We're here to make that promise a reality.</p>
+            
+            <div class="platform-grid">
+                <div class="initiative-card">
+                    <h3><span class="initiative-number">1</span> Modernize the Exam Bank & Academic Resources</h3>
+                    <p>No more searching through decade-old exams. We will build a modern, searchable exam bank with recent materials for every core course.</p>
+                    <div class="initiative-details">
+                        <strong>How we'll do it:</strong>
+                        <ul>
+                            <li>Launch recurring "Exam Bank Submission Drives" with meaningful incentives (C&D gift cards, POETS vouchers, EngSoc merch)</li>
+                            <li>Work with professors to release modern midterms and finals with appropriate permissions</li>
+                            <li>Develop a cleaner, searchable interface ensuring every popular course has recent exam materials</li>
+                        </ul>
+                        <strong>Why it matters:</strong> Better preparation means better performance.
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <h3><span class="initiative-number">2</span> Enhance Career Fair & On-Site Interviews</h3>
+                    <p>Transform the Career Fair from just networking to real recruitment with on-site interview opportunities.</p>
+                    <div class="initiative-details">
+                        <strong>How we'll do it:</strong>
+                        <ul>
+                            <li>Secure on-site or near-site interviews at our Career Fair</li>
+                            <li>Introduce micro-networking sessions targeted by discipline (software, hardware, energy, consulting)</li>
+                            <li>Increase professional-development workshops (interview prep, company-specific training)</li>
+                        </ul>
+                        <strong>Why it matters:</strong> Direct pathways to internships and full-time positions.
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <h3><span class="initiative-number">3</span> Strengthen Departmental Societies & Design Teams</h3>
+                    <p>Build stronger connections between all engineering groups through formal support and resource sharing.</p>
+                    <div class="initiative-details">
+                        <strong>How we'll do it:</strong>
+                        <ul>
+                            <li>Continue building the Interdepartmental Societies Council</li>
+                            <li>Provide shared resources and streamlined communication channels</li>
+                            <li>Ensure every department has representation in EngSoc's service ecosystem</li>
+                        </ul>
+                        <strong>Why it matters:</strong> Stronger communities mean better support for every student.
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <h3><span class="initiative-number">4</span> Embed Sustainability in All Services</h3>
+                    <p>Sustainability isn't an add-on — it's embedded in everything we do, from event planning to procurement.</p>
+                    <div class="initiative-details">
+                        <strong>How we'll do it:</strong>
+                        <ul>
+                            <li>Implement sustainability audits for all events and services</li>
+                            <li>Reduce single-use plastics at career fairs and events</li>
+                            <li>Support student groups working on climate and energy initiatives</li>
+                            <li>Create a "Sustainability Checklist" for all EngSoc directors</li>
+                        </ul>
+                        <strong>Why it matters:</strong> Engineering the future means protecting it too.
+                    </div>
+                </div>
+                
+                <div class="initiative-card">
+                    <h3><span class="initiative-number">5</span> Explore Campus Nap Pods & Wellness Spaces</h3>
+                    <p>Recognizing the intensive demands on engineering students, we'll research and implement wellness spaces on campus.</p>
+                    <div class="initiative-details">
+                        <strong>How we'll do it:</strong>
+                        <ul>
+                            <li>Research feasibility of nap pods/quiet wellness rooms near POETS and E7</li>
+                            <li>Evaluate funding options (ECIF, WEEF, sponsorships)</li>
+                            <li>Run student surveys to gauge interest and optimal locations</li>
+                        </ul>
+                        <strong>Why it matters:</strong> Supporting student well-being improves academic performance and mental health.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credentials">
+        <div class="container">
+            <h2>Our Experience</h2>
+            <p>We don't just have ideas — we have the experience to implement them.</p>
+            
+            <div class="credentials-grid">
+                <div class="credential-category">
+                    <h4>Jordan's Leadership Experience</h4>
+                    <ul>
+                        <li>EE Representative since 2023</li>
+                        <li>Two-term Internal Relations Commissioner</li>
+                        <li>Director & Technical PM at WAT.ai</li>
+                        <li>Expert in stakeholder management & process improvement</li>
+                        <li>Bridge between student voice and organizational process</li>
+                    </ul>
+                </div>
+                
+                <div class="credential-category">
+                    <h4>Ivy's Leadership Experience</h4>
+                    <ul>
+                        <li>Chemical Engineering Representative</li>
+                        <li>Two-term Student Services Commissioner</li>
+                        <li>Director of Student Services initiatives</li>
+                        <li>Lab researcher in sustainable materials</li>
+                        <li>Direct experience with student career development</li>
+                    </ul>
+                </div>
+                
+                <div class="credential-category">
+                    <h4>Our Combined Strengths</h4>
+                    <ul>
+                        <li>4+ years of combined EngSoc experience</li>
+                        <li>Proven track record of service delivery</li>
+                        <li>Professional experience in project management</li>
+                        <li>Deep understanding of student needs across disciplines</li>
+                        <li>Commitment to sustainability and innovation</li>
+                    </ul>
+                </div>
+                
+                <div class="credential-category">
+                    <h4>Why We're Ready</h4>
+                    <ul>
+                        <li>We know EngSoc's inner workings</li>
+                        <li>We've identified the gaps in current services</li>
+                        <li>We have the skills to manage complex initiatives</li>
+                        <li>We're focused on implementation, not just ideas</li>
+                        <li>We're ready to deliver from day one</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="get-involved">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <p>Your voice matters. Share your ideas, submit old exams, or join our campaign.</p>
+            <p>Together, we'll build services that actually serve you.</p>
+            
+            <div class="cta-buttons">
+                <a href="https://forms.gle/QfbzaXoHKd5PY6HE8" target="_blank" class="cta-button">Share Your Ideas</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScYf10FLl_OW35Ri0AIR9mAvHbQQv8mVGo7kSug2cwZ8gXdrQ/viewform" target="_blank" class="cta-button">Submit Old Exams</a>
+                <a href="https://vote.wusa.ca/login" target="_blank" class="cta-button">Vote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Jordan Leis & Ivy Ngo for VP Services | Waterloo Engineering Society</p>
+            <p>Contact: jordan.leis@uwaterloo.ca | ivy.ngo@uwaterloo.ca</p>
+            <div class="sustainability-badge">🌱 Sustainably Planned Campaign by Jordan & Ivy</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.fontWeight = '600';
+                link.style.color = 'var(--text-dark)';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.fontWeight = '700';
+                    link.style.color = '#ffd23f';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
